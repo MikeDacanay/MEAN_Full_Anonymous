@@ -16,7 +16,6 @@ export class NotelistComponent implements OnInit {
 
 	constructor(private _sharedService: SharedService) {
 		this.getNotes();
-		console.log(this.notelist);
 	}
 
 	getNotes(){

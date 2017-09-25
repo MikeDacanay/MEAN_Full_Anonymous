@@ -13,7 +13,8 @@ export class SharedService {
 
 	create(note){
 		this._http.post('/notes', note)
-		.subscribe()
+		.subscribe();
+		this.noteList.push(note);
 	}
 
 	retrieveNotes(callback){
