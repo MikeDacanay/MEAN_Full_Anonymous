@@ -12,16 +12,16 @@ export class NotelistComponent implements OnInit {
 	notelist= [];
 
 	ngOnInit() {
-		this.getNotes();
 	}
 
 	constructor(private _sharedService: SharedService) {
+		this.getNotes();
+		console.log(this.notelist);
 	}
 
 	getNotes(){
 		this._sharedService.retrieveNotes((notes) => {
 			this.notelist = notes;
-			console.log(this.notelist);
 		})
 	}
 }

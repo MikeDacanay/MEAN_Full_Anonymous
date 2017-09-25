@@ -12,15 +12,13 @@ export class SharedService {
 	}	
 
 	create(note){
-		this._http.post('/note', note)
-		.subscribe();
-
+		this._http.post('/notes', note)
+		.subscribe()
 	}
 
 	retrieveNotes(callback){
 		this._http.get('/notes')
 		.subscribe(data =>{
-			console.log(data.json());
 			this.noteList = data.json();
 			callback(this.noteList);
 		});
