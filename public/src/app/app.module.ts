@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { CreateComponent } from './create/create.component';
 import { NotelistComponent } from './notelist/notelist.component';
 import { SharedService } from './shared.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SharedService } from './shared.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

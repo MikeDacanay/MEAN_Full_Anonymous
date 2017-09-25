@@ -8,13 +8,20 @@ import { SharedService } from './../shared.service'
 })
 export class NotelistComponent implements OnInit {
 
+
 	notelist= [];
 
-	constructor(private _sharedService: SharedService) {
-		this.notelist=this._sharedService.noteList
-	}
-
 	ngOnInit() {
+		this.getNotes();
 	}
 
+	constructor(private _sharedService: SharedService) {
+	}
+
+	getNotes(){
+		this._sharedService.retrieveNotes((notes) => {
+			this.notelist = notes;
+			console.log(this.notelist);
+		})
+	}
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService } from './../shared.service'
+import { SharedService } from './../shared.service';
 @Component({
 	selector: 'app-create',
 	templateUrl: './create.component.html',
@@ -8,7 +8,7 @@ import { SharedService } from './../shared.service'
 export class CreateComponent implements OnInit {
 
 	note = {
-		xxx:"",
+		memo:"",
 	}
 
 	constructor(private _sharedService: SharedService) { }
@@ -17,9 +17,11 @@ export class CreateComponent implements OnInit {
 	}
 
 	onSubmit(){
-		if(this.note.xxx.length>0){
-			this._sharedService.noteList.splice(0,0,this.note.xxx);
-			this.note.xxx = '';
+		if(this.note.memo.length > 0){
+			this._sharedService.create(this.note);
+			this.note = {
+				memo:"",
+			}
 		}
 	}
 }
